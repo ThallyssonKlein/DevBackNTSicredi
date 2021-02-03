@@ -13,7 +13,7 @@ services:
       - 3306:3306
   main-app:
     container_name: main-app
-    build: ./DevBackendNTSicredi/
+    build: ./DevBackNTSicredi
     depends_on:
       - mysql
     ports:
