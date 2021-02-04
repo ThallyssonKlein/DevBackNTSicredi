@@ -1,7 +1,6 @@
-FROM openjdk
-
-WORKDIR /app
-
-COPY target/DevBackNTSicredi-0.0.1-SNAPSHOT.jar /app/spring-app.jar
-
-ENTRYPOINT [ "java", "-jar", "spring-app.jar"]
+FROM adoptopenjdk/openjdk11
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+COPY wait-for-it.sh ./
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
