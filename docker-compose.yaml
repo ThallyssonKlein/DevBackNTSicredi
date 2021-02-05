@@ -3,7 +3,7 @@ version: '3'
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql
+    container_name: mysql-db2
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=votingsessionmanager
@@ -13,8 +13,10 @@ services:
       - 3306:3306
   main-app:
     container_name: main-app
-    build: ./DevBackendNTSicredi/
+    build: ./DevBackNTSicredi
+    restart: on-failure
     depends_on:
       - mysql
     ports:
       - 8080:8080
+        
