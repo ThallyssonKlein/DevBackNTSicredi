@@ -19,8 +19,4 @@ services:
       - mysql
     ports:
       - 8080:8080
-    environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db2:3306/votingsessionmanager?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
-        SPRING_DATASOURCE_USERNAME: user
-        SPRING_DATASOURCE_PASSWORD: password
         
