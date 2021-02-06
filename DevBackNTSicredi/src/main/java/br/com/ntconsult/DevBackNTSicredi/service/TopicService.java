@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface TopicService {
 
-    public Topic postTopic(Topic topic);
+    Topic postTopic(Topic topic);
 
-    public Optional<Topic> getOneTopic(long id);
+    Optional<Topic> getOneTopic(long id);
 }

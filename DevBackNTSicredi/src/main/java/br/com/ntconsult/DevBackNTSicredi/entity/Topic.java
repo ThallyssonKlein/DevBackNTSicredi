@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Getter
@@ -22,5 +23,6 @@ public class Topic implements Serializable {
     private long id;
 
     @Column(name = "VALUE", nullable = false)
+    @NotEmpty
     private String value;
 }
