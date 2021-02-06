@@ -1,0 +1,12 @@
+POST http://localhost:8080/api/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 1
+    },
+    "end" : "2021-02-07T03:51:20.240+00:00"
+}
+
+###
+GET http://localhost:8080/api/topic/
