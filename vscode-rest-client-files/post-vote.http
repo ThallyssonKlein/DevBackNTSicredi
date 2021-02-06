@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/vote
+content-type: application/json
+
+{
+    "value" : "SIM",
+    "associateId" : 1,
+    "session" : {
+        "id" : 1
+    }
+}
