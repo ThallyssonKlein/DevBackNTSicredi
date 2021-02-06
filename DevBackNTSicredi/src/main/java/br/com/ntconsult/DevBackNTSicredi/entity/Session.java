@@ -33,6 +33,8 @@ public class Session implements Serializable {
     @Column(name = "END", nullable = true)
     private Date end;
 
+
+
     private Date incrementStartDate(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(start);
@@ -43,7 +45,7 @@ public class Session implements Serializable {
     @PrePersist
     void preInsert() {
         this.start = new Date();
-        if(this.end == null){
+        if(this.end == null || this.end.before(start)){
             this.end = incrementStartDate();
         }
     }
