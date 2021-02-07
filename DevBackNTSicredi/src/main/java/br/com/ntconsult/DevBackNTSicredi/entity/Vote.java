@@ -34,7 +34,7 @@ public class Vote implements Serializable {
     private Answer value;
 
     @Column(name = "ASSOCIATE_ID", unique = true, nullable = false)
-    private long associateId;
+    private String associateId;
 
     @ManyToOne
     @JoinColumn(name = "SESSION", referencedColumnName = "ID")

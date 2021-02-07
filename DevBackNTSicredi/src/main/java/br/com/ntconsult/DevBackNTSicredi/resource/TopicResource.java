@@ -17,7 +17,7 @@ public class TopicResource {
     @Autowired
     private TopicService topicService;
 
-    @PostMapping("/topic")
+    @PostMapping("/v1/topic")
     @ApiOperation(value = "Cria uma nova pauta")
     public Topic postTopic(@Valid @RequestBody Topic topic){
         return topicService.postTopic(topic);

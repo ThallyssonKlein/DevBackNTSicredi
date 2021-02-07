@@ -1,4 +1,4 @@
-package br.com.ntconsult.DevBackNTSicredi.entity;
+package br.com.ntconsult.DevBackNTSicredi.resource.responseobj;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
