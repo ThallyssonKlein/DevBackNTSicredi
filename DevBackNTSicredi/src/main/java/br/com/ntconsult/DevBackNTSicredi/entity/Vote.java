@@ -20,7 +20,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Vote implements Serializable {
 
-    private enum Answer {
+    public enum Answer {
         SIM, NAO
     }
 

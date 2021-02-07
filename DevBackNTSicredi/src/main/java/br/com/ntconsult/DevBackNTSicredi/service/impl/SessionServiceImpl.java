@@ -20,6 +20,9 @@ public class SessionServiceImpl implements SessionService {
 
     @Override
     public Session postSession(Session session) {
+        if(session.getEnd().before(session.getStart())){
+            return null;
+        }
         return sessionRepository.save(session);
     }
 

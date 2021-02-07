@@ -1,47 +1,58 @@
+# Passando valor diferente de SIM ou NAO para o valor
+POST http://localhost:8080/api/v1/vote
+content-type: application/json
+
+{
+    "value" : "alguma coisa",
+    "associateId" : "60099163055",
+    "session" : {
+        "id" : "1"
+    }
+}
+
+###
+#Salvando um voto sim para a sessão 1
 POST http://localhost:8080/api/v1/vote
 content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : "1",
+    "associateId" : "60099163055",
     "session" : {
-        "id" : 1
+        "id" : "1"
     }
 }
 
 ###
+#Votando com uma id repitida
 POST http://localhost:8080/api/v1/vote
 content-type: application/json
 
 {
-    "value" : "NAO",
-    "associateId" : "2",
-    "session" : {
-        "id" : 2
-    }
-}
-
-###
-POST http://localhost:8080/api/v2/vote
-content-type: application/json
-
-{
-    "value" : "NAO",
-    "associateId" : "2",
-    "session" : {
-        "id" : 1
-    }
-}
-
-###
-POST http://localhost:8080/api/v2/vote
-content-type: application/json
-
-{
-    "value" : "NAO",
+    "value" : "SIM",
     "associateId" : "60099163055",
     "session" : {
-        "id" : 1
+        "id" : "1"
     }
 }
 
+### Não passando a sessão
+POST http://localhost:8080/api/v1/vote
+content-type: application/json
+
+{
+    "value" : "SIM",
+    "associateId" : "60099160355"
+}
+
+### Passando uma sessão not found
+POST http://localhost:8080/api/v1/vote
+content-type: application/json
+
+{
+    "value" : "SIM",
+    "associateId" : "60099160355",
+    "session" : {
+        "id" : 40
+    }
+}

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,8 +28,13 @@ public class SessionResource {
 
     @PostMapping("/v1/session")
     @ApiOperation(value ="Inicia uma nova sessão")
-    public Session postSession(@RequestBody Session session) {
-        return sessionService.postSession(session);
+    public Session postSession(@RequestBody @Valid Session session, HttpServletResponse res) {
+        if(session != null){
+            return sessionService.postSession(session);
+        }else{
+            res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return session;
+        }
     }
 
     @GetMapping("/v1/session/{id}/results")

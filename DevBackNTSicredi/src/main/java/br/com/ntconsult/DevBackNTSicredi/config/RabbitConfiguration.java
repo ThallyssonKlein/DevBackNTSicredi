@@ -8,38 +8,18 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfiguration {
 
     @Bean
-    Queue marketingQueue() {
-        return new Queue("marketingQueue", false);
-    }
-
-    @Bean
-    Queue financeQueue() {
-        return new Queue("financeQueue", false);
-    }
-
-    @Bean
     Queue adminQueue() {
-        return new Queue("adminQueue", false);
+        return new Queue("spring-boot-queue", false);
     }
 
     @Bean
     DirectExchange exchange() {
-        return new DirectExchange("direct-exchange");
-    }
-
-    @Bean
-    Binding marketingBinding(Queue marketingQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(marketingQueue).to(exchange).with("marketing");
-    }
-
-    @Bean
-    Binding financeBinding(Queue financeQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(financeQueue).to(exchange).with("finance");
+        return new DirectExchange("spring-boot-exchenge");
     }
 
     @Bean
     Binding adminBinding(Queue adminQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(adminQueue).to(exchange).with("admin");
+        return BindingBuilder.bind(adminQueue).to(exchange).with("spring-boot");
     }
 
 }

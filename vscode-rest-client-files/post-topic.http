@@ -2,7 +2,7 @@ POST http://localhost:8080/api/v1/topic
 content-type: application/json
 
 {
-    "value" : "topico de teste"
+    "value" : "Tópico para a reunião 1"
 }
 
 ###
@@ -10,5 +10,5 @@ POST http://localhost:8080/api/v1/topic
 content-type: application/json
 
 {
-    "value" : "topico de teste"
+    "value" : "Tópico para a reunião 2"
 }

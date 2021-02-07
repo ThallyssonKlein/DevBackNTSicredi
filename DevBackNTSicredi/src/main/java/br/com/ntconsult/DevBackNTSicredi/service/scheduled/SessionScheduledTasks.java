@@ -25,7 +25,7 @@ public class SessionScheduledTasks {
     private Gson gson = new Gson();
 
     @Scheduled(fixedRate = 5000)
-    public void reportCurrentTime() {
+    public void postDoneSessionResultsOnMessaging() {
         List<Session> sessions = sessionService.findAllSessions();
         for(Session session : sessions) {
             if(new Date().after(session.getEnd())){

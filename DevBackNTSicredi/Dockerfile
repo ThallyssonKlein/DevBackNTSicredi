@@ -12,6 +12,8 @@ COPY . /app-build
 
 RUN ls -al
 
+RUN mvn clean install
+
 RUN mvn package
 
 FROM openjdk:11-jre-slim as run
