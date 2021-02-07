@@ -1,0 +1,108 @@
+#Sessão com valor definido para o final usando tópico 1
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 1
+    },
+    "end" : "2021-02-09T03:51:20.240+00:00"
+}
+
+###
+#Sessão sem valor definido para o final usando o mesmo tópico
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 1
+    }
+}
+
+###
+#Sessão sem valor definido para o final usando o mesmo tópico diferente
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 2
+    }
+}
+
+###
+#Sessão usando tópico diferente e passando ou para end ou para start algo que não é uma data
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 2
+    },
+    "start" : "alguma coisa"
+}
+
+###
+#Sessão usando tópico diferente e passando um end antes do start
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 2
+    },
+    "end" : "2021-02-07T03:51:20.240+00:00"
+}
+
+###
+#Sessão sem tópico
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "end" : "2021-02-09T03:51:20.240+00:00"
+}
+
+###
+#Sessão com tópico not found
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 40
+    },
+    "end" : "2021-02-09T03:51:20.240+00:00"
+}
+
+###
+#Sessão com algum voto not found
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 40
+    },
+    "end" : "2021-02-09T03:51:20.240+00:00",
+    "votes" : [
+        {
+            "id" : 40
+        }
+    ]
+}
+
+#--------------------------------
+
+###
+#Pega sessão que não acabou
+GET http://localhost:8080/api/v1/session/1/results
+
+###
+#Pega sessão que já acabou
+GET http://localhost:8080/api/v1/session/2/results
+
+###
+#Pega sessão not found
+GET http://localhost:8080/api/v1/session/3/results
