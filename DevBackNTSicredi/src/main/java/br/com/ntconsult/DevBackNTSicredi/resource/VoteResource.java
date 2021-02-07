@@ -18,9 +18,15 @@ public class VoteResource {
     @Autowired
     private VoteService voteService;
 
-    @PostMapping("/vote")
+    @PostMapping("/v1/vote")
     @ApiOperation(value = "Cria um novo voto")
     public Vote postVote(@Valid @RequestBody Vote vote){
         return voteService.postVote(vote);
+    }
+
+    @PostMapping("/v2/vote")
+    @ApiOperation(value = "Cria um novo voto com a validação do id do associado")
+    public Vote postVoteWithAssociateIdValidation(@Valid @RequestBody Vote vote){
+        return voteService.postVoteWithAssociateIdValidation(vote);
     }
 }
