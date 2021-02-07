@@ -1,6 +1,6 @@
 package br.com.ntconsult.DevBackNTSicredi.resource;
 
-import br.com.ntconsult.DevBackNTSicredi.resource.responseobj.Result;
+import br.com.ntconsult.DevBackNTSicredi.resource.responseobj.ResultResponseObj;
 import br.com.ntconsult.DevBackNTSicredi.entity.Session;
 import br.com.ntconsult.DevBackNTSicredi.service.SessionService;
 import com.google.gson.Gson;
@@ -40,7 +40,7 @@ public class SessionResource {
                 int yesCount = sessionService.findYesCountBySessionId(session.get());
                 int noCount = sessionService.findNoCountBySessionId(session.get());
                 res.setContentType("application/json");
-                return gson.toJson(new Result(yesCount, noCount));
+                return gson.toJson(new ResultResponseObj(yesCount, noCount));
             }else{
                 res.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
                 res.sendRedirect("/api/v1/session/" + String.valueOf(id));

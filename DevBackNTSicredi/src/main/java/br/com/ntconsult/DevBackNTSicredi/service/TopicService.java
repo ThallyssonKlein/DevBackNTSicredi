@@ -7,6 +7,4 @@ import java.util.Optional;
 public interface TopicService {
 
     Topic postTopic(Topic topic);
-
-    Optional<Topic> getOneTopic(long id);
 }

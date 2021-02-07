@@ -1,16 +1,17 @@
-package br.com.ntconsult.DevBackNTSicredi.resource.responseobj;
+package br.com.ntconsult.DevBackNTSicredi.service.scheduled.messageobj;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class Result {
+@AllArgsConstructor
+@NoArgsConstructor
+public class SessionResultMessage {
 
+    private long sessionId;
     private int yesCount;
     private int noCount;
 }

@@ -14,7 +14,7 @@ content-type: application/json
 
 {
     "topic" : {
-        "id" : 2
+        "id" : 1
     }
 }
 

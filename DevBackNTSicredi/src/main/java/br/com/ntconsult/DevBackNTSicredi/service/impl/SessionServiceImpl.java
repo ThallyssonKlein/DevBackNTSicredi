@@ -7,6 +7,7 @@ import br.com.ntconsult.DevBackNTSicredi.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +36,10 @@ public class SessionServiceImpl implements SessionService {
     @Override
     public Optional<Session> getOneSession(long id) {
         return sessionRepository.findById(id);
+    }
+
+    @Override
+    public List<Session> findAllSessions() {
+        return sessionRepository.findAll();
     }
 }

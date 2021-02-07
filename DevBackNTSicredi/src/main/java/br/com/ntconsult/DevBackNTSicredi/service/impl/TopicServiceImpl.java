@@ -18,9 +18,4 @@ public class TopicServiceImpl implements TopicService {
     public Topic postTopic(Topic topic) {
         return topicRepository.save(topic);
     }
-
-    @Override
-    public Optional<Topic> getOneTopic(long id) {
-        return topicRepository.findById(id);
-    }
 }
