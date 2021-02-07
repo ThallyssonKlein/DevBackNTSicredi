@@ -8,3 +8,15 @@ content-type: application/json
         "id" : 1
     }
 }
+
+###
+POST http://localhost:8080/api/vote
+content-type: application/json
+
+{
+    "value" : "NAO",
+    "associateId" : 2,
+    "session" : {
+        "id" : 2
+    }
+}

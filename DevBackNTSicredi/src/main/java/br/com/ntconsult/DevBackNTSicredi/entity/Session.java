@@ -1,14 +1,19 @@
 package br.com.ntconsult.DevBackNTSicredi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +30,7 @@ public class Session implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "TOPIC", referencedColumnName = "ID")
+    @NotNull
     private Topic topic;
 
     @Column(name = "START", nullable = true)
@@ -33,6 +39,9 @@ public class Session implements Serializable {
     @Column(name = "END", nullable = true)
     private Date end;
 
+    @OneToMany(mappedBy = "session")
+    @JsonManagedReference
+    private List<Vote> votes;
 
 
     private Date incrementStartDate(){
@@ -49,5 +58,4 @@ public class Session implements Serializable {
             this.end = incrementStartDate();
         }
     }
-
 }

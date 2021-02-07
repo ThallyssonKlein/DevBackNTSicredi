@@ -4,3 +4,11 @@ content-type: application/json
 {
     "value" : "topico de teste"
 }
+
+###
+POST http://localhost:8080/api/topic
+content-type: application/json
+
+{
+    "value" : "topico de teste"
+}
