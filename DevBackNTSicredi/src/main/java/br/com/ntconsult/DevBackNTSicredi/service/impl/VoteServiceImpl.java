@@ -12,8 +12,7 @@ public class VoteServiceImpl implements VoteService {
 
     @Autowired
     private VoteRepository voteRepository;
-    @Autowired
-    private AssociateIdValidator associateIdValidator;
+    private AssociateIdValidator associateIdValidator = new AssociateIdValidator();
 
     @Override
     public Vote postVote(Vote vote) {

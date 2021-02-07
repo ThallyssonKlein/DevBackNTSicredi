@@ -1,22 +1,47 @@
-POST http://localhost:8080/api/vote
+POST http://localhost:8080/api/v1/vote
 content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : 1,
+    "associateId" : "1",
     "session" : {
         "id" : 1
     }
 }
 
 ###
-POST http://localhost:8080/api/vote
+POST http://localhost:8080/api/v1/vote
 content-type: application/json
 
 {
     "value" : "NAO",
-    "associateId" : 2,
+    "associateId" : "2",
     "session" : {
         "id" : 2
     }
 }
+
+###
+POST http://localhost:8080/api/v2/vote
+content-type: application/json
+
+{
+    "value" : "NAO",
+    "associateId" : "2",
+    "session" : {
+        "id" : 1
+    }
+}
+
+###
+POST http://localhost:8080/api/v2/vote
+content-type: application/json
+
+{
+    "value" : "NAO",
+    "associateId" : "60099163055",
+    "session" : {
+        "id" : 1
+    }
+}
+
