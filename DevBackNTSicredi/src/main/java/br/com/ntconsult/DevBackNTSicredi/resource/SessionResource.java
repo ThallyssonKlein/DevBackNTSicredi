@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -29,20 +31,19 @@ public class SessionResource {
     @PostMapping("/v1/session")
     @ApiOperation(value ="Inicia uma nova sessão")
     public Session postSession(@RequestBody @Valid Session session, HttpServletResponse res) {
-        if(session != null){
-            return sessionService.postSession(session);
-        }else{
+        Session result = sessionService.postSession(session);
+        if(result == null){
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            return session;
         }
+        return result;
     }
 
     @GetMapping("/v1/session/{id}/results")
-    @ApiOperation(value = "Busca os resultados de uma sessão caso aberta e existente")
+    @ApiOperation(value = "Busca os resultados de uma sessão caso finalizada, e caso não finalizada direciona para os detalhes da sessão.")
     public String getSessionResults(@PathVariable(value = "id") @Valid long id, HttpServletResponse res) throws IOException {
         Optional<Session> session = sessionService.getOneSession(id);
         if(session.isPresent()){
-            if(new Date().after(session.get().getEnd())){
+            if(LocalDateTime.now(ZoneId.of( "Brazil/East" )).isAfter(session.get().getEnd())){
                 int yesCount = sessionService.findYesCountBySessionId(session.get());
                 int noCount = sessionService.findNoCountBySessionId(session.get());
                 res.setContentType("application/json");

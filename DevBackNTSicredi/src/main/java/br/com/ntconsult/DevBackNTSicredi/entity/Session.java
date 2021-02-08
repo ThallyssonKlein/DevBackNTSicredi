@@ -11,6 +11,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -34,28 +37,21 @@ public class Session implements Serializable {
     private Topic topic;
 
     @Column(name = "START", nullable = true)
-    private Date start;
+    private LocalDateTime start;
 
     @Column(name = "END", nullable = true)
-    private Date end;
+    private LocalDateTime end;
 
     @OneToMany(mappedBy = "session")
     @JsonManagedReference
     private List<Vote> votes;
 
-
-    private Date incrementStartDate(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(start);
-        calendar.add(Calendar.MINUTE, 1);
-        return calendar.getTime();
-    }
-
     @PrePersist
-    void preInsert() {
-        this.start = new Date();
-        if(this.end == null || this.end.before(start)){
-            this.end = incrementStartDate();
+    public void prePersist(){
+        this.start = LocalDateTime.now(ZoneId.of( "Brazil/East" ));
+        if(this.end == null){
+            this.end = this.start.plusMinutes(1);
         }
     }
+
 }
