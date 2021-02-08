@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -26,12 +28,17 @@ public class SessionScheduledTasks {
 
     @Scheduled(fixedRate = 5000)
     public void postDoneSessionResultsOnMessaging() {
+        System.out.println("**********888");
         List<Session> sessions = sessionService.findAllSessions();
         for(Session session : sessions) {
-            if(new Date().after(session.getEnd())){
+            System.out.println("xxxxxxxxxxxx");
+            System.out.println(LocalDateTime.now(ZoneId.of( "Brazil/East" )));
+            System.out.println(session.getEnd());
+            if(LocalDateTime.now(ZoneId.of( "Brazil/East" )).isAfter(session.getEnd())){
+                System.out.println("VVVVVVVVVVVVVV");
                 int yesCount = sessionService.findYesCountBySessionId(session);
                 int noCount = sessionService.findNoCountBySessionId(session);
-                amqpTemplate.convertAndSend("direct-exchange","admin",
+                amqpTemplate.convertAndSend("spring-boot-exchange","spring-boot",
                                                 gson.toJson(new SessionResultMessage(session.getId(), yesCount, noCount)));
             }
         }

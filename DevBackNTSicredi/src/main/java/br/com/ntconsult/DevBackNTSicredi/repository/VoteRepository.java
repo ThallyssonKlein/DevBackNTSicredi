@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface VoteRepository extends JpaRepository<Vote, Long> {
     @Query("SELECT COUNT(*) FROM Vote v WHERE v.value=0 AND v.session=:session")
-    int findYesCountBySessionId(@Param("session") Session sessionId);
+    int findYesCountBySessionId(@Param("session") Session session);
 
     @Query("SELECT COUNT(*) FROM Vote v WHERE v.value=1 AND v.session=:session")
-    int findNoCountBySessionId(@Param("session") Session sessionId);
+    int findNoCountBySessionId(@Param("session") Session session);
 }

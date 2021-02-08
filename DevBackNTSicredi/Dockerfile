@@ -12,8 +12,6 @@ COPY . /app-build
 
 RUN ls -al
 
-RUN mvn clean install
-
 RUN mvn package
 
 FROM openjdk:11-jre-slim as run
@@ -23,5 +21,7 @@ WORKDIR /app
 COPY --from=build-stage /app-build/target/*.jar /app/app.jar
 
 RUN ls -al
+
+ARG TIMEZONE="Brazil/East"
 
 ENTRYPOINT [ "java", "-jar", "/app/app.jar" ]

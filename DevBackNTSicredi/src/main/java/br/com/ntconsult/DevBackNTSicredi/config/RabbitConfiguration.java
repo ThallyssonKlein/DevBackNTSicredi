@@ -14,7 +14,7 @@ public class RabbitConfiguration {
 
     @Bean
     DirectExchange exchange() {
-        return new DirectExchange("spring-boot-exchenge");
+        return new DirectExchange("spring-boot-exchange");
     }
 
     @Bean

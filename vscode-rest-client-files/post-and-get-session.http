@@ -6,7 +6,7 @@ content-type: application/json
     "topic" : {
         "id" : 1
     },
-    "end" : "2021-02-09T03:51:20.240+00:00"
+    "end" : "2021-02-09T01:51:29.687599"
 }
 
 ###
@@ -21,7 +21,7 @@ content-type: application/json
 }
 
 ###
-#Sessão sem valor definido para o final usando o mesmo tópico diferente
+#Sessão sem valor definido para o final usando um tópico diferente
 POST http://localhost:8080/api/v1/session
 content-type: application/json
 
@@ -52,7 +52,7 @@ content-type: application/json
     "topic" : {
         "id" : 2
     },
-    "end" : "2021-02-07T03:51:20.240+00:00"
+    "end" : "2021-02-08T01:51:29.687599"
 }
 
 ###
@@ -61,7 +61,7 @@ POST http://localhost:8080/api/v1/session
 content-type: application/json
 
 {
-    "end" : "2021-02-09T03:51:20.240+00:00"
+    "end" : "2021-02-09T01:51:29.687599"
 }
 
 ###
@@ -73,7 +73,7 @@ content-type: application/json
     "topic" : {
         "id" : 40
     },
-    "end" : "2021-02-09T03:51:20.240+00:00"
+    "end" : "2021-02-09T01:51:29.687599"
 }
 
 ###
@@ -85,7 +85,7 @@ content-type: application/json
     "topic" : {
         "id" : 40
     },
-    "end" : "2021-02-09T03:51:20.240+00:00",
+    "end" : "2021-02-09T01:51:29.687599",
     "votes" : [
         {
             "id" : 40
@@ -106,3 +106,13 @@ GET http://localhost:8080/api/v1/session/2/results
 ###
 #Pega sessão not found
 GET http://localhost:8080/api/v1/session/3/results
+
+###
+POST http://localhost:8080/api/v1/session
+content-type: application/json
+
+{
+    "topic" : {
+        "id" : 4
+    }
+}
