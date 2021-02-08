@@ -33,7 +33,7 @@ public class Vote implements Serializable {
     @Column(name = "VALUE", nullable = false)
     private Answer value;
 
-    @Column(name = "ASSOCIATE_ID", unique = true, nullable = false)
+    @Column(name = "ASSOCIATE_ID", nullable = false)
     private String associateId;
 
     @ManyToOne

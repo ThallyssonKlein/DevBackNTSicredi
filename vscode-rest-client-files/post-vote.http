@@ -11,7 +11,7 @@ content-type: application/json
 }
 
 ###
-#Salvando um voto sim para a sessão 1
+#Salvando um voto sim para a sessão 2 -- Para testar a mensageria
 POST http://localhost:8080/api/v1/vote
 content-type: application/json
 
@@ -19,7 +19,7 @@ content-type: application/json
     "value" : "SIM",
     "associateId" : "60099163055",
     "session" : {
-        "id" : "1"
+        "id" : 2
     }
 }
 
@@ -32,7 +32,20 @@ content-type: application/json
     "value" : "SIM",
     "associateId" : "60099163055",
     "session" : {
-        "id" : "1"
+        "id" : 2
+    }
+}
+
+###
+#Votando após o final da sessão -- esperar 1 minuto
+POST http://localhost:8080/api/v1/vote
+content-type: application/json
+
+{
+    "value" : "SIM",
+    "associateId" : "60099160355",
+    "session" : {
+        "id" : 2
     }
 }
 

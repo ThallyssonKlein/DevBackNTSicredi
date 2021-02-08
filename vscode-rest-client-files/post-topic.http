@@ -12,3 +12,20 @@ content-type: application/json
 {
     "value" : "Tópico para a reunião 2"
 }
+
+###
+POST http://localhost:8080/api/v1/topic
+content-type: application/json
+
+{
+    "value" : "Tópico para a reunião 3"
+}
+
+###
+#Post com valor nulo
+POST http://localhost:8080/api/v1/topic
+content-type: application/json
+
+{
+    "value" : null
+}
