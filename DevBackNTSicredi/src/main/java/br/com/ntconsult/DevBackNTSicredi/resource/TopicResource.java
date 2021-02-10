@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -21,8 +20,6 @@ public class TopicResource {
     @PostMapping("/v1/topic")
     @ApiOperation(value = "Cria uma nova pauta")
     public Topic postTopic(@Valid @RequestBody Topic topic){
-        System.out.println("No topic");
-        System.out.println(new Date());
         return topicService.postTopic(topic);
     }
 }
