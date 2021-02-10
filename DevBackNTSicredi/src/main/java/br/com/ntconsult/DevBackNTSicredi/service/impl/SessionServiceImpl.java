@@ -28,22 +28,18 @@ public class SessionServiceImpl implements SessionService {
     @Override
     public Session postSession(Session session) {
         if(session.getEnd() != null && postSessionValidator.validateIfSessionEndDateIsBeforeThanNow(session)){
-            System.out.println("Entrou no 1");
             return null;
         }
         Session sessionWithTheSameTopic = findSessionByTopic(session.getTopic());
         if(sessionWithTheSameTopic != null){
-            System.out.println("Entrou no 2");
             return null;
         }
         if(!topicRepository.existsById(session.getTopic().getId())){
-            System.out.println("Entrou no 3");
             return null;
         }
         if(session.getVotes() != null){
             for(Vote vote : session.getVotes()){
                 if(!voteRepository.existsById(vote.getId())){
-                    System.out.println("Entrou no 4");
                     return null;
                 }
             }

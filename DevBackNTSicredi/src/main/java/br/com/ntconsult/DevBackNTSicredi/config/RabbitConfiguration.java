@@ -9,17 +9,17 @@ public class RabbitConfiguration {
 
     @Bean
     Queue adminQueue() {
-        return new Queue("spring-boot-queue", false);
+        return new Queue("votingsessionmanager-queue", false);
     }
 
     @Bean
     DirectExchange exchange() {
-        return new DirectExchange("spring-boot-exchange");
+        return new DirectExchange("votingsessionmanager-exchange");
     }
 
     @Bean
     Binding adminBinding(Queue adminQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(adminQueue).to(exchange).with("spring-boot");
+        return BindingBuilder.bind(adminQueue).to(exchange).with("votingsessionmanager");
     }
 
 }
