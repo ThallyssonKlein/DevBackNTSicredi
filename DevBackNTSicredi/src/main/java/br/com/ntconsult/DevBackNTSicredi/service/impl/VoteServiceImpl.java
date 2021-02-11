@@ -45,6 +45,12 @@ public class VoteServiceImpl implements VoteService {
             return null;
         }
 
+        for(Vote v : session.get().getVotes()){
+            if(v.getAssociateId().equals(vote.getAssociateId())){
+                return null;
+            }
+        }
+
         if(!associateIdValidator.validateAssociateId(vote.getAssociateId())){
             return null;
         }
