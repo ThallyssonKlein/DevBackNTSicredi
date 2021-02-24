@@ -4,7 +4,7 @@ content-type: application/json
 
 {
     "value" : "alguma coisa",
-    "associateId" : "60099163055",
+    "associateId" : "99999999999",
     "session" : {
         "id" : "1"
     }
@@ -17,7 +17,7 @@ content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : "60099163055",
+    "associateId" : "99999999999",
     "session" : {
         "id" : 2
     }
@@ -30,7 +30,7 @@ content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : "60099163055",
+    "associateId" : "99999999999",
     "session" : {
         "id" : 2
     }
@@ -43,7 +43,7 @@ content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : "60099160355",
+    "associateId" : "99999999996",
     "session" : {
         "id" : 2
     }
@@ -55,7 +55,7 @@ content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : "60099160355"
+    "associateId" : "99999999996"
 }
 
 ### Passando uma sessão not found
@@ -64,7 +64,7 @@ content-type: application/json
 
 {
     "value" : "SIM",
-    "associateId" : "60099160355",
+    "associateId" : "99999999996",
     "session" : {
         "id" : 40
     }
